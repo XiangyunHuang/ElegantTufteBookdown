@@ -14,7 +14,7 @@ description: "A Tufte-Style bookdown template."
 
 \mainmatter
 
-<!-- `r if (knitr::is_latex_output()) '<!--'` -->
+`r if (knitr::is_latex_output()) '<!--'`
 
 ```{r setup, include=FALSE}
 library(tufte)
@@ -140,7 +140,7 @@ file.edit(
 )
 ```
 
-<!-- `r if (knitr::is_latex_output()) '-->'` -->
+`r if (knitr::is_latex_output()) '-->'`
 
 ```{r include=FALSE}
 # automatically create a bib database for R packages
