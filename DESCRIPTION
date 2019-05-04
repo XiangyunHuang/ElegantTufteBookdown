@@ -11,7 +11,6 @@ BugReports: https://github.com/XiangyunHuang/ElegantTufteBookdown/issues
 Suggests:
   beautifyR,
   citr,
-  styler,
-  svglite
+  styler
 Remotes: mwip/beautifyR
 SystemRequirements: pandoc (>= 2.3.1) - https://pandoc.org.

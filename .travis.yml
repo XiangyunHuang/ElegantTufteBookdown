@@ -1,7 +1,6 @@
 language: r
 dist: xenial
 r: 
- - 3.5
  - 3.6
 
 cache:
@@ -30,19 +29,16 @@ env:
   global:
     - TZ="Asia/Shanghai"
     - MAKEFLAGS="-j 2"
- 
-matrix:
-  include:
-    - os: linux
-      addons:
-        apt:
-          sources:
-            - sourceline: ppa:opencpu/libgit2
-          packages:
-            # git2r
-            - libgit2-dev
-            # pdf output
-            - ghostscript
+
+addons:
+  apt:
+    sources:
+      - sourceline: ppa:opencpu/libgit2
+    packages:
+      # git2r
+      - libgit2-dev
+      # pdf output
+      - ghostscript
 
 before_install:
   # TinyTeX 
