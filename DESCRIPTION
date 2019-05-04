@@ -1,0 +1,17 @@
+Package: placeholder
+Type: Book
+Title: Elegant Tufte Template Base on Bookdown.
+Version: 1.0.0
+Imports: 
+  bookdown,
+  ggplot2,
+  tufte
+URL: https://tuftedown.netlify.com/
+BugReports: https://github.com/XiangyunHuang/ElegantTufteBookdown/issues
+Suggests:
+  beautifyR,
+  citr,
+  styler,
+  svglite
+Remotes: mwip/beautifyR
+SystemRequirements: pandoc (>= 2.3.1) - https://pandoc.org.

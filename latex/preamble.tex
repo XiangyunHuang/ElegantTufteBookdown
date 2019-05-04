@@ -1,0 +1,37 @@
+% 设置中文字体
+\usepackage[UTF8]{ctex}
+% 更加紧凑的目录
+% \usepackage[titles]{tocloft}
+% \usepackage[nottoc]{tocbibind}
+% 多图并列
+% \usepackage[lotdepth=2,lofdepth=2]{subfig}
+% 修复警告 LaTeX Warning: Marginpar on page XX moved.
+\usepackage{marginfix}
+% used by pdflatex or lualatex
+% \usepackage{letterspace} 
+% 设置字体样式
+\usepackage{Alegreya}
+\usepackage[sfdefault]{AlegreyaSans}
+\usepackage[scale=0.85]{sourcecodepro}
+% 索引
+\usepackage{makeidx}
+\makeindex
+% 处理代码块中的单双引号
+\makeatletter
+\defaultfontfeatures[\ttfamily]{
+    Numbers   = \sourcecodepro@figurestyle ,
+    Scale     = \SourceCodePro@scale ,
+    Extension = .otf }
+\setmonofont[ 
+    UprightFont    = *-\sourcecodepro@regstyle ,
+    ItalicFont     = *-\sourcecodepro@regstyle It ,
+    BoldFont       = *-\sourcecodepro@boldstyle , 
+    BoldItalicFont = *-\sourcecodepro@boldstyle It ]{SourceCodePro}     
+\makeatother
+% 代码块中文混合的情况
+\RecustomVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\},formatcom=\xeCJKVerbAddon}
+% 背景保护色
+\usepackage{xcolor}
+\pagecolor[rgb]{0.9, 0.99, 0.9}
+
+\frontmatter

@@ -1,0 +1,76 @@
+language: r
+dist: xenial
+r: 
+ - 3.5
+ - 3.6
+
+cache:
+  packages: true
+  directories:
+    - _bookdown_files
+    - $HOME/.npm
+    
+latex: false
+branches:
+  only:
+    - master
+    - release
+    - stable
+
+pandoc_version: 2.7.2
+
+git:
+  depth: 5
+  submodules: false
+  
+repos:
+  CRAN: https://cloud.r-project.org
+
+env:
+  global:
+    - TZ="Asia/Shanghai"
+    - MAKEFLAGS="-j 2"
+ 
+matrix:
+  include:
+    - os: linux
+      addons:
+        apt:
+          sources:
+            - sourceline: ppa:opencpu/libgit2
+          packages:
+            # git2r
+            - libgit2-dev
+            # pdf output
+            - ghostscript
+
+before_install:
+  # TinyTeX 
+  - curl -fLo /tmp/tinytex.tar.gz https://travis-bin.yihui.name/tinytex.tar.gz
+  - tar -xzf /tmp/tinytex.tar.gz -C $HOME
+  - export PATH=$HOME/.TinyTeX/bin/x86_64-linux:$PATH
+  - tlmgr install $(cat latex/TeXLive.pkgs | tr '\n' ' ') || true
+  # GCC
+  - mkdir -p ~/.R/
+  - echo "CXXFLAGS += -Wno-ignored-attributes" >> ~/.R/Makevars
+  # node
+  - nvm install stable  
+  - npm install netlify-cli -g
+  # deploy with messages 
+  - export COMMIT_MSG=$(git log -1 --format='%h %<(50,trunc)%s')
+  - echo $COMMIT_MSG
+  - export DEPLOY_MSG=${COMMIT_MSG//[\'\"\`]/}
+  - echo $DEPLOY_MSG  
+
+before_script:
+  - Rscript -e 'update.packages(lib.loc = .libPaths()[1], ask = FALSE)'
+
+script:
+  - Rscript -e 'bookdown::render_book("index.Rmd")'
+
+deploy:
+  provider: script
+  script: netlify deploy --prod --dir _book --message "$DEPLOY_MSG"
+  skip_cleanup: true
+  on:
+    branch: master

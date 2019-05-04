@@ -9,15 +9,5 @@ packages.bib
 .project
 _book/
 _bookdown_files/
-test/
-r-manuals/
-
-*-tikzDictionary
-temp.Rmd
-book/
-data/
-slide
-
-stringi.md
 
 .DS_Store

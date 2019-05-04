@@ -1,0 +1,21 @@
+bookdown::gitbook:
+  css: style.css
+  split_by: rmd
+  config:
+    toc:
+      before: |
+        <li><a href="./">Tufte 风格的 bookdown 模版</a></li>
+      after: |
+        <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+    download: ["pdf"]
+bookdown::pdf_book:
+  includes:
+    in_header: latex/preamble.tex
+    before_body: latex/before_body.tex
+    after_body: latex/after_body.tex
+  latex_engine: xelatex
+  citation_package: natbib
+  keep_tex: yes
+  base_format: tufte::tufte_book
+  pandoc_args: ["--top-level-division=chapter", "--wrap=auto", "--lua-filter=latex/sidebar.lua"]
+  quote_footer: ["\\hspace*{\\fill} ", ""]
