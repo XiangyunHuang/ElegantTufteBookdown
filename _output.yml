@@ -1,6 +1,7 @@
 bookdown::gitbook:
   css: style.css
   split_by: rmd
+  dev: svglite
   config:
     toc:
       before: |
@@ -8,6 +9,10 @@ bookdown::gitbook:
       after: |
         <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
     download: ["pdf"]
+bookdown::html_chapters:
+  base_format: tufte::tufte_html
+  dev: svglite
+  split_by: rmd
 bookdown::pdf_book:
   includes:
     in_header: latex/preamble.tex

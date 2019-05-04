@@ -10,6 +10,7 @@ URL: https://tuftedown.netlify.com/
 BugReports: https://github.com/XiangyunHuang/ElegantTufteBookdown/issues
 Suggests:
   beautifyR,
-  styler
+  styler,
+  svglite
 Remotes: mwip/beautifyR
 SystemRequirements: pandoc (>= 2.3.1) - https://pandoc.org.
