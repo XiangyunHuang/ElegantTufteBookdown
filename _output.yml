@@ -1,14 +1,3 @@
-bookdown::gitbook:
-  css: style.css
-  split_by: rmd
-  dev: svglite
-  config:
-    toc:
-      before: |
-        <li><a href="./">Tufte 风格的 bookdown 模版</a></li>
-      after: |
-        <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
-    download: ["pdf"]
 bookdown::html_chapters:
   base_format: tufte::tufte_html
   dev: svglite

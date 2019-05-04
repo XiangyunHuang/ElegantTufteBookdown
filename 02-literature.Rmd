@@ -1,3 +1,18 @@
 # Literature
 
 Here is a review of existing methods.
+
+```{marginfigure}
+We know from _the first fundamental theorem of calculus_ that
+for $x$ in $[a, b]$:
+$$\frac{d}{dx}\left( \int_{a}^{x} f(u)\,du\right)=f(x).$$
+```
+
+如果把 marginfigure 环境里的内容放在 sidebar 里，我们可以看到公式的预览，注意行间公式和前面的文本需要空一格
+
+::: sidebar
+We know from _the first fundamental theorem of calculus_ that
+for $x$ in $[a, b]$:
+
+$$\frac{d}{dx}\left( \int_{a}^{x} f(u)\,du\right)=f(x).$$
+:::
