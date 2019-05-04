@@ -7,4 +7,11 @@ function Div(el)
       pandoc.RawBlock("latex", "\\end{shaded}")
     }
   end
+  if el.classes:includes("marginfigure") then
+    return {
+      pandoc.RawBlock("latex", "\\begin{marginfigure}"),
+      el,
+      pandoc.RawBlock("latex", "\\end{marginfigure}")
+    }
+  end
 end

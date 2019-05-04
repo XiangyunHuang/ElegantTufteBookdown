@@ -14,7 +14,7 @@ description: "A Tufte-Style bookdown template."
 
 \mainmatter
 
-`r if (knitr::is_latex_output()) '<!--'`
+<!-- `r if (knitr::is_latex_output()) '<!--'` -->
 
 ```{r setup, include=FALSE}
 library(tufte)
@@ -66,10 +66,10 @@ ggplot(mtcars2, aes(hp, mpg, color = am)) +
 
 事实上我们可以在边栏中放置除了图之外的内容，此时我们不再使用```` ```{r} ````写代码段，而是用```` ```{marginfigure} ````。例如右边有一个微积分第一基本定理。
 
-```{marginfigure}
+::: marginfigure
 根据微积分第一基本定理我们知道，对$x \in [a, b]$有
 $$\frac{d}{dx}\left( \int_{a}^{x} f(u)\,du\right)=f(x).$$
-```
+:::
 
 为了文本内容的可移植性（同样的内容可以生成HTML和LaTeX文档），我们建议边栏中不要放置太复杂的内容，简单的加粗、倾斜都没有问题，但不建议在边栏中使用列表、参考文献等内容。
 
@@ -140,7 +140,7 @@ file.edit(
 )
 ```
 
-`r if (knitr::is_latex_output()) '-->'`
+<!-- `r if (knitr::is_latex_output()) '-->'` -->
 
 ```{r include=FALSE}
 # automatically create a bib database for R packages
